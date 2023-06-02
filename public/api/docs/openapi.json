@@ -19,1615 +19,1246 @@
     },
     "servers": [
         {
-            "url": "http://0.0.0.0:4444/api/"
-
+            "url": "http://0.0.0.0:5555/api/"
         }
     ],
     "tags": [
-{
-    "name": "User",
-    "description": "User",
-    "externalDocs": {
-        "description": "Find out more",
-        "url": "http://swagger.io"
-    }
-}
-,{
-    "name": "Location",
-    "description": "Location",
-    "externalDocs": {
-        "description": "Find out more",
-        "url": "http://swagger.io"
-    }
-}
-,{
-    "name": "Product",
-    "description": "Product",
-    "externalDocs": {
-        "description": "Find out more",
-        "url": "http://swagger.io"
-    }
-}
-,{
-    "name": "Command",
-    "description": "Command",
-    "externalDocs": {
-        "description": "Find out more",
-        "url": "http://swagger.io"
-    }
-}
-,{
-    "name": "Commandproduct",
-    "description": "Commandproduct",
-    "externalDocs": {
-        "description": "Find out more",
-        "url": "http://swagger.io"
-    }
-}
-,{
-    "name": "Payment",
-    "description": "Payment",
-    "externalDocs": {
-        "description": "Find out more",
-        "url": "http://swagger.io"
-    }
-}
-,{
-    "name": "Delivery",
-    "description": "Delivery",
-    "externalDocs": {
-        "description": "Find out more",
-        "url": "http://swagger.io"
-    }
-}
-
+        {
+            "name": "User",
+            "description": "User",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://swagger.io"
+            }
+        },
+        {
+            "name": "Location",
+            "description": "Location",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://swagger.io"
+            }
+        },
+        {
+            "name": "Product",
+            "description": "Product",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://swagger.io"
+            }
+        },
+        {
+            "name": "Command",
+            "description": "Command",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://swagger.io"
+            }
+        },
+        {
+            "name": "Payment",
+            "description": "Payment",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://swagger.io"
+            }
+        },
+        {
+            "name": "Delivery",
+            "description": "Delivery",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://swagger.io"
+            }
+        }
     ],
-
     "security": [
         {
             "OAuth2": [
-
             ]
         }
     ],
-
     "paths": {
-
-        "/user" : {
-    "get": {
-        "tags": [
-            "User"
-        ],
-        "summary": "Find all User",
-        "description": "Returns a single User",
-        "operationId": "getAllUser",
-
-        "responses": {
-            "200": {
-                "description": "successful operation",
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "$ref": "#/components/schemas/User"
+        "/user": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Find all User",
+                "description": "Returns a single User",
+                "operationId": "getAllUser",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
                         }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
                     }
                 }
             },
-            "400": {
-                "description": "Invalid ID supplied"
-            },
-            "404": {
-                "description": "Not found"
-            }
-        }
-    },
-    "post": {
-            "tags": [
-                "User"
-            ],
-            "summary": "create User",
-            "description": "create a single User",
-            "operationId": "createUser",
-
-
-            "requestBody": {
-                "description": "Create a new User",
-                "content": {
-                    "application/json": {
-                        "schema": {
-
-                             "$ref": "#/components/schemas/UserPostPut"
-                        }
-                    }
-                },
-                "required": true
-            },
-            "responses": {
-                "200": {
-                    "description": "successful operation",
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "create User",
+                "description": "create a single User",
+                "operationId": "createUser",
+                "requestBody": {
+                    "description": "Create a new User",
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/User"
+                                "$ref": "#/components/schemas/UserPostPut"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
-                "400": {
-                    "description": "Invalid ID supplied"
-                },
-                "404": {
-                    "description": "Not found"
-                }
-            }
-        }
-
-
-},
-
-
-"/user/{id}" : {
-    "put": {
-        "tags": [
-            "User"
-        ],
-        "summary": "Edit User",
-        "description": "Edit User",
-        "operationId": "editUser",
-        "parameters": [
-            {
-                "name": "id",
-                "in": "path",
-                "description": "ID of User to return",
-                "required": true,
-                "schema": {
-                    "type": "integer",
-                    "format": "int64"
-                }
-            }
-
-        ],
-        "requestBody": {
-            "description": "Update a new User",
-            "content": {
-                "application/json": {
-                    "schema": {
-
-                         "$ref": "#/components/schemas/UserPostPut"
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
                     }
                 }
-            },
-            "required": true
+            }
         },
-        "responses": {
-            "200": {
-                "description": "successful operation",
-                "content": {
-                    "application/json": {
+        "/user/{id}": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Edit User",
+                "description": "Edit User",
+                "operationId": "editUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of User to return",
+                        "required": true,
                         "schema": {
-                            "$ref": "#/components/schemas/User"
+                            "type": "integer",
+                            "format": "int64"
                         }
                     }
-                }
-            },
-            "400": {
-                "description": "Invalid ID supplied"
-            },
-            "404": {
-                "description": "Not found"
-            }
-        }
-    },
-    "delete": {
-            "tags": [
-                "User"
-            ],
-            "summary": "Delete User",
-            "description": "Delete a single User",
-            "operationId": "DeleteUser",
-
-
-            "parameters": [
-                        {
-                            "name": "id",
-                            "in": "path",
-                            "description": "ID of User to delete",
-                            "required": true,
-                            "schema": {
-                                "type": "integer",
-                                "format": "int64"
-                            }
-                        }
-
-                    ],
-            "responses": {
-                "200": {
-                    "description": "successful operation",
+                ],
+                "requestBody": {
+                    "description": "Update a new User",
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/User"
+                                "$ref": "#/components/schemas/UserPostPut"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
-                "400": {
-                    "description": "Invalid ID supplied"
-                },
-                "404": {
-                    "description": "Not found"
-                }
-            }
-        }
-
-
-}
-,"/location" : {
-    "get": {
-        "tags": [
-            "Location"
-        ],
-        "summary": "Find all Location",
-        "description": "Returns a single Location",
-        "operationId": "getAllLocation",
-
-        "responses": {
-            "200": {
-                "description": "successful operation",
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "$ref": "#/components/schemas/Location"
-                        }
-                    }
-                }
-            },
-            "400": {
-                "description": "Invalid ID supplied"
-            },
-            "404": {
-                "description": "Not found"
-            }
-        }
-    },
-    "post": {
-            "tags": [
-                "Location"
-            ],
-            "summary": "create Location",
-            "description": "create a single Location",
-            "operationId": "createLocation",
-
-
-            "requestBody": {
-                "description": "Create a new Location",
-                "content": {
-                    "application/json": {
-                        "schema": {
-
-                             "$ref": "#/components/schemas/LocationPostPut"
-                        }
-                    }
-                },
-                "required": true
-            },
-            "responses": {
-                "200": {
-                    "description": "successful operation",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Location"
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
                             }
                         }
-                    }
-                },
-                "400": {
-                    "description": "Invalid ID supplied"
-                },
-                "404": {
-                    "description": "Not found"
-                }
-            }
-        }
-
-
-},
-
-
-"/location/{id}" : {
-    "put": {
-        "tags": [
-            "Location"
-        ],
-        "summary": "Edit Location",
-        "description": "Edit Location",
-        "operationId": "editLocation",
-        "parameters": [
-            {
-                "name": "id",
-                "in": "path",
-                "description": "ID of Location to return",
-                "required": true,
-                "schema": {
-                    "type": "integer",
-                    "format": "int64"
-                }
-            }
-
-        ],
-        "requestBody": {
-            "description": "Update a new Location",
-            "content": {
-                "application/json": {
-                    "schema": {
-
-                         "$ref": "#/components/schemas/LocationPostPut"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
                     }
                 }
             },
-            "required": true
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete User",
+                "description": "Delete a single User",
+                "operationId": "DeleteUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of User to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
         },
-        "responses": {
-            "200": {
-                "description": "successful operation",
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "$ref": "#/components/schemas/Location"
+        "/location": {
+            "get": {
+                "tags": [
+                    "Location"
+                ],
+                "summary": "Find all Location",
+                "description": "Returns a single Location",
+                "operationId": "getAllLocation",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Location"
+                                }
+                            }
                         }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
                     }
                 }
             },
-            "400": {
-                "description": "Invalid ID supplied"
-            },
-            "404": {
-                "description": "Not found"
-            }
-        }
-    },
-    "delete": {
-            "tags": [
-                "Location"
-            ],
-            "summary": "Delete Location",
-            "description": "Delete a single Location",
-            "operationId": "DeleteLocation",
-
-
-            "parameters": [
-                        {
-                            "name": "id",
-                            "in": "path",
-                            "description": "ID of Location to delete",
-                            "required": true,
-                            "schema": {
-                                "type": "integer",
-                                "format": "int64"
-                            }
-                        }
-
-                    ],
-            "responses": {
-                "200": {
-                    "description": "successful operation",
+            "post": {
+                "tags": [
+                    "Location"
+                ],
+                "summary": "create Location",
+                "description": "create a single Location",
+                "operationId": "createLocation",
+                "requestBody": {
+                    "description": "Create a new Location",
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Location"
+                                "$ref": "#/components/schemas/LocationPostPut"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
-                "400": {
-                    "description": "Invalid ID supplied"
-                },
-                "404": {
-                    "description": "Not found"
-                }
-            }
-        }
-
-
-}
-,"/product" : {
-    "get": {
-        "tags": [
-            "Product"
-        ],
-        "summary": "Find all Product",
-        "description": "Returns a single Product",
-        "operationId": "getAllProduct",
-
-        "responses": {
-            "200": {
-                "description": "successful operation",
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "$ref": "#/components/schemas/Product"
-                        }
-                    }
-                }
-            },
-            "400": {
-                "description": "Invalid ID supplied"
-            },
-            "404": {
-                "description": "Not found"
-            }
-        }
-    },
-    "post": {
-            "tags": [
-                "Product"
-            ],
-            "summary": "create Product",
-            "description": "create a single Product",
-            "operationId": "createProduct",
-
-
-            "requestBody": {
-                "description": "Create a new Product",
-                "content": {
-                    "application/json": {
-                        "schema": {
-
-                             "$ref": "#/components/schemas/ProductPostPut"
-                        }
-                    }
-                },
-                "required": true
-            },
-            "responses": {
-                "200": {
-                    "description": "successful operation",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Product"
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Location"
+                                }
                             }
                         }
-                    }
-                },
-                "400": {
-                    "description": "Invalid ID supplied"
-                },
-                "404": {
-                    "description": "Not found"
-                }
-            }
-        }
-
-
-},
-
-
-"/product/{id}" : {
-    "put": {
-        "tags": [
-            "Product"
-        ],
-        "summary": "Edit Product",
-        "description": "Edit Product",
-        "operationId": "editProduct",
-        "parameters": [
-            {
-                "name": "id",
-                "in": "path",
-                "description": "ID of Product to return",
-                "required": true,
-                "schema": {
-                    "type": "integer",
-                    "format": "int64"
-                }
-            }
-
-        ],
-        "requestBody": {
-            "description": "Update a new Product",
-            "content": {
-                "application/json": {
-                    "schema": {
-
-                         "$ref": "#/components/schemas/ProductPostPut"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
                     }
                 }
-            },
-            "required": true
+            }
         },
-        "responses": {
-            "200": {
-                "description": "successful operation",
-                "content": {
-                    "application/json": {
+        "/location/{id}": {
+            "put": {
+                "tags": [
+                    "Location"
+                ],
+                "summary": "Edit Location",
+                "description": "Edit Location",
+                "operationId": "editLocation",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Location to return",
+                        "required": true,
                         "schema": {
-                            "$ref": "#/components/schemas/Product"
+                            "type": "integer",
+                            "format": "int64"
                         }
                     }
-                }
-            },
-            "400": {
-                "description": "Invalid ID supplied"
-            },
-            "404": {
-                "description": "Not found"
-            }
-        }
-    },
-    "delete": {
-            "tags": [
-                "Product"
-            ],
-            "summary": "Delete Product",
-            "description": "Delete a single Product",
-            "operationId": "DeleteProduct",
-
-
-            "parameters": [
-                        {
-                            "name": "id",
-                            "in": "path",
-                            "description": "ID of Product to delete",
-                            "required": true,
-                            "schema": {
-                                "type": "integer",
-                                "format": "int64"
-                            }
-                        }
-
-                    ],
-            "responses": {
-                "200": {
-                    "description": "successful operation",
+                ],
+                "requestBody": {
+                    "description": "Update a new Location",
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Product"
+                                "$ref": "#/components/schemas/LocationPostPut"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
-                "400": {
-                    "description": "Invalid ID supplied"
-                },
-                "404": {
-                    "description": "Not found"
-                }
-            }
-        }
-
-
-}
-,"/command" : {
-    "get": {
-        "tags": [
-            "Command"
-        ],
-        "summary": "Find all Command",
-        "description": "Returns a single Command",
-        "operationId": "getAllCommand",
-
-        "responses": {
-            "200": {
-                "description": "successful operation",
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "$ref": "#/components/schemas/Command"
-                        }
-                    }
-                }
-            },
-            "400": {
-                "description": "Invalid ID supplied"
-            },
-            "404": {
-                "description": "Not found"
-            }
-        }
-    },
-    "post": {
-            "tags": [
-                "Command"
-            ],
-            "summary": "create Command",
-            "description": "create a single Command",
-            "operationId": "createCommand",
-
-
-            "requestBody": {
-                "description": "Create a new Command",
-                "content": {
-                    "application/json": {
-                        "schema": {
-
-                             "$ref": "#/components/schemas/CommandPostPut"
-                        }
-                    }
-                },
-                "required": true
-            },
-            "responses": {
-                "200": {
-                    "description": "successful operation",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Command"
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Location"
+                                }
                             }
                         }
-                    }
-                },
-                "400": {
-                    "description": "Invalid ID supplied"
-                },
-                "404": {
-                    "description": "Not found"
-                }
-            }
-        }
-
-
-},
-
-
-"/command/{id}" : {
-    "put": {
-        "tags": [
-            "Command"
-        ],
-        "summary": "Edit Command",
-        "description": "Edit Command",
-        "operationId": "editCommand",
-        "parameters": [
-            {
-                "name": "id",
-                "in": "path",
-                "description": "ID of Command to return",
-                "required": true,
-                "schema": {
-                    "type": "integer",
-                    "format": "int64"
-                }
-            }
-
-        ],
-        "requestBody": {
-            "description": "Update a new Command",
-            "content": {
-                "application/json": {
-                    "schema": {
-
-                         "$ref": "#/components/schemas/CommandPostPut"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
                     }
                 }
             },
-            "required": true
+            "delete": {
+                "tags": [
+                    "Location"
+                ],
+                "summary": "Delete Location",
+                "description": "Delete a single Location",
+                "operationId": "DeleteLocation",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Location to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Location"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
         },
-        "responses": {
-            "200": {
-                "description": "successful operation",
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "$ref": "#/components/schemas/Command"
+        "/product": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Find all Product",
+                "description": "Returns a single Product",
+                "operationId": "getAllProduct",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
                         }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
                     }
                 }
             },
-            "400": {
-                "description": "Invalid ID supplied"
-            },
-            "404": {
-                "description": "Not found"
-            }
-        }
-    },
-    "delete": {
-            "tags": [
-                "Command"
-            ],
-            "summary": "Delete Command",
-            "description": "Delete a single Command",
-            "operationId": "DeleteCommand",
-
-
-            "parameters": [
-                        {
-                            "name": "id",
-                            "in": "path",
-                            "description": "ID of Command to delete",
-                            "required": true,
-                            "schema": {
-                                "type": "integer",
-                                "format": "int64"
-                            }
-                        }
-
-                    ],
-            "responses": {
-                "200": {
-                    "description": "successful operation",
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "create Product",
+                "description": "create a single Product",
+                "operationId": "createProduct",
+                "requestBody": {
+                    "description": "Create a new Product",
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Command"
+                                "$ref": "#/components/schemas/ProductPostPut"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
-                "400": {
-                    "description": "Invalid ID supplied"
-                },
-                "404": {
-                    "description": "Not found"
-                }
-            }
-        }
-
-
-}
-,"/commandproduct" : {
-    "get": {
-        "tags": [
-            "CommandProduct"
-        ],
-        "summary": "Find all CommandProduct",
-        "description": "Returns a single CommandProduct",
-        "operationId": "getAllCommandProduct",
-
-        "responses": {
-            "200": {
-                "description": "successful operation",
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "$ref": "#/components/schemas/CommandProduct"
-                        }
-                    }
-                }
-            },
-            "400": {
-                "description": "Invalid ID supplied"
-            },
-            "404": {
-                "description": "Not found"
-            }
-        }
-    },
-    "post": {
-            "tags": [
-                "CommandProduct"
-            ],
-            "summary": "create CommandProduct",
-            "description": "create a single CommandProduct",
-            "operationId": "createCommandProduct",
-
-
-            "requestBody": {
-                "description": "Create a new CommandProduct",
-                "content": {
-                    "application/json": {
-                        "schema": {
-
-                             "$ref": "#/components/schemas/CommandProductPostPut"
-                        }
-                    }
-                },
-                "required": true
-            },
-            "responses": {
-                "200": {
-                    "description": "successful operation",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/CommandProduct"
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
                             }
                         }
-                    }
-                },
-                "400": {
-                    "description": "Invalid ID supplied"
-                },
-                "404": {
-                    "description": "Not found"
-                }
-            }
-        }
-
-
-},
-
-
-"/commandproduct/{id}" : {
-    "put": {
-        "tags": [
-            "CommandProduct"
-        ],
-        "summary": "Edit CommandProduct",
-        "description": "Edit CommandProduct",
-        "operationId": "editCommandProduct",
-        "parameters": [
-            {
-                "name": "id",
-                "in": "path",
-                "description": "ID of CommandProduct to return",
-                "required": true,
-                "schema": {
-                    "type": "integer",
-                    "format": "int64"
-                }
-            }
-
-        ],
-        "requestBody": {
-            "description": "Update a new CommandProduct",
-            "content": {
-                "application/json": {
-                    "schema": {
-
-                         "$ref": "#/components/schemas/CommandProductPostPut"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
                     }
                 }
-            },
-            "required": true
+            }
         },
-        "responses": {
-            "200": {
-                "description": "successful operation",
-                "content": {
-                    "application/json": {
+        "/product/{id}": {
+            "put": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Edit Product",
+                "description": "Edit Product",
+                "operationId": "editProduct",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Product to return",
+                        "required": true,
                         "schema": {
-                            "$ref": "#/components/schemas/CommandProduct"
+                            "type": "integer",
+                            "format": "int64"
                         }
                     }
-                }
-            },
-            "400": {
-                "description": "Invalid ID supplied"
-            },
-            "404": {
-                "description": "Not found"
-            }
-        }
-    },
-    "delete": {
-            "tags": [
-                "CommandProduct"
-            ],
-            "summary": "Delete CommandProduct",
-            "description": "Delete a single CommandProduct",
-            "operationId": "DeleteCommandProduct",
-
-
-            "parameters": [
-                        {
-                            "name": "id",
-                            "in": "path",
-                            "description": "ID of CommandProduct to delete",
-                            "required": true,
-                            "schema": {
-                                "type": "integer",
-                                "format": "int64"
-                            }
-                        }
-
-                    ],
-            "responses": {
-                "200": {
-                    "description": "successful operation",
+                ],
+                "requestBody": {
+                    "description": "Update a new Product",
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/CommandProduct"
+                                "$ref": "#/components/schemas/ProductPostPut"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
-                "400": {
-                    "description": "Invalid ID supplied"
-                },
-                "404": {
-                    "description": "Not found"
-                }
-            }
-        }
-
-
-}
-,"/payment" : {
-    "get": {
-        "tags": [
-            "Payment"
-        ],
-        "summary": "Find all Payment",
-        "description": "Returns a single Payment",
-        "operationId": "getAllPayment",
-
-        "responses": {
-            "200": {
-                "description": "successful operation",
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "$ref": "#/components/schemas/Payment"
-                        }
-                    }
-                }
-            },
-            "400": {
-                "description": "Invalid ID supplied"
-            },
-            "404": {
-                "description": "Not found"
-            }
-        }
-    },
-    "post": {
-            "tags": [
-                "Payment"
-            ],
-            "summary": "create Payment",
-            "description": "create a single Payment",
-            "operationId": "createPayment",
-
-
-            "requestBody": {
-                "description": "Create a new Payment",
-                "content": {
-                    "application/json": {
-                        "schema": {
-
-                             "$ref": "#/components/schemas/PaymentPostPut"
-                        }
-                    }
-                },
-                "required": true
-            },
-            "responses": {
-                "200": {
-                    "description": "successful operation",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Payment"
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
                             }
                         }
-                    }
-                },
-                "400": {
-                    "description": "Invalid ID supplied"
-                },
-                "404": {
-                    "description": "Not found"
-                }
-            }
-        }
-
-
-},
-
-
-"/payment/{id}" : {
-    "put": {
-        "tags": [
-            "Payment"
-        ],
-        "summary": "Edit Payment",
-        "description": "Edit Payment",
-        "operationId": "editPayment",
-        "parameters": [
-            {
-                "name": "id",
-                "in": "path",
-                "description": "ID of Payment to return",
-                "required": true,
-                "schema": {
-                    "type": "integer",
-                    "format": "int64"
-                }
-            }
-
-        ],
-        "requestBody": {
-            "description": "Update a new Payment",
-            "content": {
-                "application/json": {
-                    "schema": {
-
-                         "$ref": "#/components/schemas/PaymentPostPut"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
                     }
                 }
             },
-            "required": true
+            "delete": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Delete Product",
+                "description": "Delete a single Product",
+                "operationId": "DeleteProduct",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Product to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
         },
-        "responses": {
-            "200": {
-                "description": "successful operation",
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "$ref": "#/components/schemas/Payment"
+        "/command": {
+            "get": {
+                "tags": [
+                    "Command"
+                ],
+                "summary": "Find all Command",
+                "description": "Returns a single Command",
+                "operationId": "getAllCommand",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Command"
+                                }
+                            }
                         }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
                     }
                 }
             },
-            "400": {
-                "description": "Invalid ID supplied"
-            },
-            "404": {
-                "description": "Not found"
-            }
-        }
-    },
-    "delete": {
-            "tags": [
-                "Payment"
-            ],
-            "summary": "Delete Payment",
-            "description": "Delete a single Payment",
-            "operationId": "DeletePayment",
-
-
-            "parameters": [
-                        {
-                            "name": "id",
-                            "in": "path",
-                            "description": "ID of Payment to delete",
-                            "required": true,
-                            "schema": {
-                                "type": "integer",
-                                "format": "int64"
-                            }
-                        }
-
-                    ],
-            "responses": {
-                "200": {
-                    "description": "successful operation",
+            "post": {
+                "tags": [
+                    "Command"
+                ],
+                "summary": "create Command",
+                "description": "create a single Command",
+                "operationId": "createCommand",
+                "requestBody": {
+                    "description": "Create a new Command",
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Payment"
+                                "$ref": "#/components/schemas/CommandPostPut"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
-                "400": {
-                    "description": "Invalid ID supplied"
-                },
-                "404": {
-                    "description": "Not found"
-                }
-            }
-        }
-
-
-}
-,"/delivery" : {
-    "get": {
-        "tags": [
-            "Delivery"
-        ],
-        "summary": "Find all Delivery",
-        "description": "Returns a single Delivery",
-        "operationId": "getAllDelivery",
-
-        "responses": {
-            "200": {
-                "description": "successful operation",
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "$ref": "#/components/schemas/Delivery"
-                        }
-                    }
-                }
-            },
-            "400": {
-                "description": "Invalid ID supplied"
-            },
-            "404": {
-                "description": "Not found"
-            }
-        }
-    },
-    "post": {
-            "tags": [
-                "Delivery"
-            ],
-            "summary": "create Delivery",
-            "description": "create a single Delivery",
-            "operationId": "createDelivery",
-
-
-            "requestBody": {
-                "description": "Create a new Delivery",
-                "content": {
-                    "application/json": {
-                        "schema": {
-
-                             "$ref": "#/components/schemas/DeliveryPostPut"
-                        }
-                    }
-                },
-                "required": true
-            },
-            "responses": {
-                "200": {
-                    "description": "successful operation",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Delivery"
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Command"
+                                }
                             }
                         }
-                    }
-                },
-                "400": {
-                    "description": "Invalid ID supplied"
-                },
-                "404": {
-                    "description": "Not found"
-                }
-            }
-        }
-
-
-},
-
-
-"/delivery/{id}" : {
-    "put": {
-        "tags": [
-            "Delivery"
-        ],
-        "summary": "Edit Delivery",
-        "description": "Edit Delivery",
-        "operationId": "editDelivery",
-        "parameters": [
-            {
-                "name": "id",
-                "in": "path",
-                "description": "ID of Delivery to return",
-                "required": true,
-                "schema": {
-                    "type": "integer",
-                    "format": "int64"
-                }
-            }
-
-        ],
-        "requestBody": {
-            "description": "Update a new Delivery",
-            "content": {
-                "application/json": {
-                    "schema": {
-
-                         "$ref": "#/components/schemas/DeliveryPostPut"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
                     }
                 }
-            },
-            "required": true
+            }
         },
-        "responses": {
-            "200": {
-                "description": "successful operation",
-                "content": {
-                    "application/json": {
+        "/command/{id}": {
+            "put": {
+                "tags": [
+                    "Command"
+                ],
+                "summary": "Edit Command",
+                "description": "Edit Command",
+                "operationId": "editCommand",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Command to return",
+                        "required": true,
                         "schema": {
-                            "$ref": "#/components/schemas/Delivery"
+                            "type": "integer",
+                            "format": "int64"
                         }
                     }
-                }
-            },
-            "400": {
-                "description": "Invalid ID supplied"
-            },
-            "404": {
-                "description": "Not found"
-            }
-        }
-    },
-    "delete": {
-            "tags": [
-                "Delivery"
-            ],
-            "summary": "Delete Delivery",
-            "description": "Delete a single Delivery",
-            "operationId": "DeleteDelivery",
-
-
-            "parameters": [
-                        {
-                            "name": "id",
-                            "in": "path",
-                            "description": "ID of Delivery to delete",
-                            "required": true,
-                            "schema": {
-                                "type": "integer",
-                                "format": "int64"
-                            }
-                        }
-
-                    ],
-            "responses": {
-                "200": {
-                    "description": "successful operation",
+                ],
+                "requestBody": {
+                    "description": "Update a new Command",
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Delivery"
+                                "$ref": "#/components/schemas/CommandPostPut"
                             }
                         }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Command"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
                     }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Command"
+                ],
+                "summary": "Delete Command",
+                "description": "Delete a single Command",
+                "operationId": "DeleteCommand",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Command to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Command"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/payment": {
+            "get": {
+                "tags": [
+                    "Payment"
+                ],
+                "summary": "Find all Payment",
+                "description": "Returns a single Payment",
+                "operationId": "getAllPayment",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Payment"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Payment"
+                ],
+                "summary": "create Payment",
+                "description": "create a single Payment",
+                "operationId": "createPayment",
+                "requestBody": {
+                    "description": "Create a new Payment",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PaymentPostPut"
+                            }
+                        }
+                    },
+                    "required": true
                 },
-                "400": {
-                    "description": "Invalid ID supplied"
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Payment"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/payment/{id}": {
+            "put": {
+                "tags": [
+                    "Payment"
+                ],
+                "summary": "Edit Payment",
+                "description": "Edit Payment",
+                "operationId": "editPayment",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Payment to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Update a new Payment",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PaymentPostPut"
+                            }
+                        }
+                    },
+                    "required": true
                 },
-                "404": {
-                    "description": "Not found"
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Payment"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Payment"
+                ],
+                "summary": "Delete Payment",
+                "description": "Delete a single Payment",
+                "operationId": "DeletePayment",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Payment to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Payment"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/delivery": {
+            "get": {
+                "tags": [
+                    "Delivery"
+                ],
+                "summary": "Find all Delivery",
+                "description": "Returns a single Delivery",
+                "operationId": "getAllDelivery",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Delivery"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Delivery"
+                ],
+                "summary": "create Delivery",
+                "description": "create a single Delivery",
+                "operationId": "createDelivery",
+                "requestBody": {
+                    "description": "Create a new Delivery",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeliveryPostPut"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Delivery"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/delivery/{id}": {
+            "put": {
+                "tags": [
+                    "Delivery"
+                ],
+                "summary": "Edit Delivery",
+                "description": "Edit Delivery",
+                "operationId": "editDelivery",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Delivery to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Update a new Delivery",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeliveryPostPut"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Delivery"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Delivery"
+                ],
+                "summary": "Delete Delivery",
+                "description": "Delete a single Delivery",
+                "operationId": "DeleteDelivery",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Delivery to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Delivery"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
                 }
             }
         }
-
-
-}
-
     },
     "components": {
         "schemas": {
-"User": {
-    "type": "object",
-    "properties":
-
-
-        {
-    "id": {
-        "type": "integer"
-    },
-    "phone": {
-        "type": "string"
-    },
-    "username": {
-        "type": "string"
-    },
-    "password": {
-        "type": "string"
-    },
-    "role": {
-        "type": "string"
-    }
-}
-
-
-},
-"UserPostPut": {
-    "type": "object",
-    "properties":
-
-
-        {
-    "phone": {
-        "type": "string"
-    },
-    "username": {
-        "type": "string"
-    },
-    "password": {
-        "type": "string"
-    },
-    "role": {
-        "type": "string"
-    }
-}
-
-
-}
-,"Location": {
-    "type": "object",
-    "properties":
-
-
-        {
-    "id": {
-        "type": "integer"
-    },
-    "user_id": {
-        "type": "integer",
-        "default": 1
-    },
-    "lat": {
-        "type": "number",
-        "default": "9.0"
-    },
-    "long": {
-        "type": "number",
-        "default": "1.10"
-    },
-    "address": {
-        "type": "string"
-    }
-}
-
-
-},
-"LocationPostPut": {
-    "type": "object",
-    "properties":
-
-
-        {
-    "user_id": {
-        "type": "integer",
-        "default": 1
-    },
-    "lat": {
-        "type": "number",
-        "default": "9.0"
-    },
-    "long": {
-        "type": "number",
-        "default": "1.10"
-    },
-    "address": {
-        "type": "string"
-    }
-}
-
-
-}
-,"Product": {
-    "type": "object",
-    "properties":
-
-
-        {
-    "id": {
-        "type": "integer"
-    },
-    "name": {
-        "type": "string"
-    },
-    "description": {
-        "type": "string"
-    },
-    "price": {
-        "type": "integer"
-    },
-    "image": {
-        "type": "string"
-    },
-    "available": {
-        "type": "bool"
-    }
-}
-
-
-},
-"ProductPostPut": {
-    "type": "object",
-    "properties":
-
-
-        {
-    "name": {
-        "type": "string"
-    },
-    "description": {
-        "type": "string"
-    },
-    "price": {
-        "type": "integer"
-    },
-    "image": {
-        "type": "string"
-    },
-    "available": {
-        "type": "bool"
-    }
-}
-
-
-}
-,"Command": {
-    "type": "object",
-    "properties":
-
-
-        {
-    "id": {
-        "type": "integer"
-    },
-    "user_id": {
-        "type": "integer"
-    },
-    "date": {
-        "type": "datetime"
-    },
-    "status": {
-        "type": "string"
-    }
-}
-
-
-},
-"CommandPostPut": {
-    "type": "object",
-    "properties":
-
-
-        {
-    "user_id": {
-        "type": "integer"
-    },
-    "date": {
-        "type": "datetime"
-    },
-    "status": {
-        "type": "string"
-    }
-}
-
-
-}
-,"Commandproduct": {
-    "type": "object",
-    "properties":
-
-
-        {
-    "command_id": {
-        "type": "integer"
-    },
-    "product_id": {
-        "type": "integer"
-    }
-}
-
-
-},
-"CommandproductPostPut": {
-    "type": "object",
-    "properties":
-
-
-        {
-    "command_id": {
-        "type": "integer"
-    },
-    "product_id": {
-        "type": "integer"
-    }
-}
-
-
-}
-,"Payment": {
-    "type": "object",
-    "properties":
-
-
-        {
-    "id": {
-        "type": "integer"
-    },
-    "command_id": {
-        "type": "integer"
-    },
-    "type": {
-        "type": "string"
-    },
-    "status": {
-        "type": "string"
-    }
-}
-
-
-},
-"PaymentPostPut": {
-    "type": "object",
-    "properties":
-
-
-        {
-    "command_id": {
-        "type": "integer"
-    },
-    "type": {
-        "type": "string"
-    },
-    "status": {
-        "type": "string"
-    }
-}
-
-
-}
-,"Delivery": {
-    "type": "object",
-    "properties":
-
-
-        {
-    "id": {
-        "type": "integer"
-    },
-    "command_id": {
-        "type": "integer"
-    },
-    "delivery_user_id": {
-        "type": "integer"
-    },
-    "date_start": {
-        "type": "datetime"
-    },
-    "date_finish_estimation": {
-        "type": "datetime"
-    },
-    "date_finish": {
-        "type": "datetime"
-    },
-    "status": {
-        "type": "string"
-    }
-}
-
-
-},
-"DeliveryPostPut": {
-    "type": "object",
-    "properties":
-
-
-        {
-    "command_id": {
-        "type": "integer"
-    },
-    "delivery_user_id": {
-        "type": "integer"
-    },
-    "date_start": {
-        "type": "datetime"
-    },
-    "date_finish_estimation": {
-        "type": "datetime"
-    },
-    "date_finish": {
-        "type": "datetime"
-    },
-    "status": {
-        "type": "string"
-    }
-}
-
-
-}
-
-        },
-
-        "securitySchemes": {
-"OAuth2": {
-    "type": "oauth2",
-    "description": "description oauth2",
-    "flows": {
-        "clientCredentials": {
-            "authorizationUrl": "http://dev.oauth.cartegriseminute.net/oauth/authorize",
-            "tokenUrl": "http://dev.oauth.cartegriseminute.net/oauth/token",
-            "scopes": {
-                "route:any" : "Grant route:any access"
-,"route:anyView" : "Grant route:anyView access"
-,"route:store" : "Grant route:store access"
-,"route:edit" : "Grant route:edit access"
-,"route:delete" : "Grant route:delete access"
-
+            "User": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "phone": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    },
+                    "role": {
+                        "type": "string"
+                    }
+                }
+            },
+            "UserPostPut": {
+                "type": "object",
+                "properties": {
+                    "phone": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    },
+                    "role": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Location": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "user_id": {
+                        "type": "integer",
+                        "default": 1
+                    },
+                    "lat": {
+                        "type": "number",
+                        "default": "9.0"
+                    },
+                    "long": {
+                        "type": "number",
+                        "default": "1.10"
+                    },
+                    "address": {
+                        "type": "string"
+                    }
+                }
+            },
+            "LocationPostPut": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "integer",
+                        "default": 1
+                    },
+                    "lat": {
+                        "type": "number",
+                        "default": "9.0"
+                    },
+                    "long": {
+                        "type": "number",
+                        "default": "1.10"
+                    },
+                    "address": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Product": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "integer"
+                    },
+                    "image": {
+                        "type": "string"
+                    },
+                    "available": {
+                        "type": "bool"
+                    }
+                }
+            },
+            "ProductPostPut": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "integer"
+                    },
+                    "image": {
+                        "type": "string"
+                    },
+                    "available": {
+                        "type": "bool"
+                    }
+                }
+            },
+            "Command": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "user_id": {
+                        "type": "integer"
+                    },
+                    "date": {
+                        "type": "datetime"
+                    },
+                    "status": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CommandPostPut": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "integer"
+                    },
+                    "date": {
+                        "type": "datetime"
+                    },
+                    "status": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Payment": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "command_id": {
+                        "type": "integer"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PaymentPostPut": {
+                "type": "object",
+                "properties": {
+                    "command_id": {
+                        "type": "integer"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Delivery": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "command_id": {
+                        "type": "integer"
+                    },
+                    "delivery_user_id": {
+                        "type": "integer"
+                    },
+                    "date_start": {
+                        "type": "datetime"
+                    },
+                    "date_finish_estimation": {
+                        "type": "datetime"
+                    },
+                    "date_finish": {
+                        "type": "datetime"
+                    },
+                    "status": {
+                        "type": "string"
+                    }
+                }
+            },
+            "DeliveryPostPut": {
+                "type": "object",
+                "properties": {
+                    "command_id": {
+                        "type": "integer"
+                    },
+                    "delivery_user_id": {
+                        "type": "integer"
+                    },
+                    "date_start": {
+                        "type": "datetime"
+                    },
+                    "date_finish_estimation": {
+                        "type": "datetime"
+                    },
+                    "date_finish": {
+                        "type": "datetime"
+                    },
+                    "status": {
+                        "type": "string"
+                    }
+                }
             }
-        }
-    }
-}
+        },
+        "securitySchemes": {
+            "OAuth2": {
+                "type": "oauth2",
+                "description": "description oauth2",
+                "flows": {
+                    "clientCredentials": {
+                        "authorizationUrl": "http://dev.oauth.cartegriseminute.net/oauth/authorize",
+                        "tokenUrl": "http://dev.oauth.cartegriseminute.net/oauth/token",
+                        "scopes": {
+                            "route:any": "Grant route:any access",
+                            "route:anyView": "Grant route:anyView access",
+                            "route:store": "Grant route:store access",
+                            "route:edit": "Grant route:edit access",
+                            "route:delete": "Grant route:delete access"
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class UserFactory extends Factory
 {
 
-    protected $model = \SJoussin\Models\UserModel::class;
+    protected $model = \SJoussin\Models\User::class;
 
     /**
      * Define the model's default state.

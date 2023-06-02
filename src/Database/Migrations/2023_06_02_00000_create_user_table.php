@@ -21,8 +21,9 @@ $table->string('username');
 
 $table->string('password');
 
-$table->string('role');
+            $table->enum('role', ['CUSTOMER', 'DELIVERY', 'ADMIN'])->default('CUSTOMER');
 
+            $table->boolean('online')->default(false);
 
             $table->timestamps();
         });

@@ -19,7 +19,7 @@
     },
     "servers": [
         {
-            "url": "http://0.0.0.0:4444/api/"
+            "url": "http://0.0.0.0:5555/api/"
 
         }
     ],
@@ -57,8 +57,8 @@
     }
 }
 ,{
-    "name": "Commandproduct",
-    "description": "Commandproduct",
+    "name": "CommandProduct",
+    "description": "CommandProduct",
     "externalDocs": {
         "description": "Find out more",
         "url": "http://swagger.io"

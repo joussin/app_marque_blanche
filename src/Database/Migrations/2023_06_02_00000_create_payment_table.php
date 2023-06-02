@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->integer('command_id');
 
-$table->string('type');
 
-$table->string('status');
 
+            $table->enum('type', ['CASH', 'CB'])->default('CASH');
+            $table->enum('status', ['WAITING', 'PAID', 'FAILED', 'CANCELED'])->default('WAITING');
 
             $table->timestamps();
         });

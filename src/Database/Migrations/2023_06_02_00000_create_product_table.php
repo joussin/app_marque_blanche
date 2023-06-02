@@ -23,7 +23,7 @@ $table->integer('price');
 
 $table->string('image');
 
-$table->boolean('available');
+$table->boolean('available')->default(true);
 
 
             $table->timestamps();

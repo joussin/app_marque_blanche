@@ -2,6 +2,6 @@
 
 
 Route::get('/', function () {
-    return redirect()->to('/allopico-alcoolo/api/docs/index.html');
+    return redirect()->to('/api/docs/index.html');
 });
 

@@ -19,7 +19,7 @@ return new class extends Migration
 
 $table->datetime('date');
 
-$table->string('status');
+$table->enum('status', ['CART', 'COMMAND_WAITING', 'COMMAND_FINISH', 'COMMAND_CANCEL'])->default('CART');
 
 
             $table->timestamps();

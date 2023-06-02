@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $model = \SJoussin\Models\UserModel::factory()->create([
+        $model = \SJoussin\Models\User::factory()->create([
                        'phone' => null,
 
            'username' => null,

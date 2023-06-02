@@ -11,7 +11,7 @@ class UserApiController extends Controller
 
     public function index(Request $request)
     {
-        return \SJoussin\Http\Resources\UserResource::collection(\SJoussin\Models\UserModel::all());
+        return \SJoussin\Http\Resources\UserResource::collection(\SJoussin\Models\User::all());
     }
 
 
@@ -19,7 +19,7 @@ class UserApiController extends Controller
     {
         $validated = $this->validate($request, \SJoussin\ValidationRules\UserValidationRules::RULES);
 
-        $model = \SJoussin\Models\UserModel::create([
+        $model = \SJoussin\Models\User::create([
 //            "name"          => $request->post('name'),
             'phone' => $request->post('phone'),
 
@@ -38,7 +38,7 @@ class UserApiController extends Controller
 
     public function show(Request $request, $id) //\SJoussin\Models\User $model)
     {
-        $model = \SJoussin\Models\UserModel::find($id);
+        $model = \SJoussin\Models\User::find($id);
 
         return new \SJoussin\Http\Resources\UserResource($model);
     }
@@ -46,7 +46,7 @@ class UserApiController extends Controller
 
     public function update(Request $request,  $id) //\SJoussin\Models\User $model)
     {
-        $model = \SJoussin\Models\UserModel::find($id);
+        $model = \SJoussin\Models\User::find($id);
         $validated = $this->validate($request, str_replace('required|', '', \SJoussin\ValidationRules\UserValidationRules::RULES));
 
         $model->update($request->only(
@@ -71,7 +71,7 @@ class UserApiController extends Controller
 
     public function destroy( $id) //\SJoussin\Models\User $model)
     {
-        $model = \SJoussin\Models\UserModel::find($id);
+        $model = \SJoussin\Models\User::find($id);
         $model->delete();
 
         return response()->json(null, 204);

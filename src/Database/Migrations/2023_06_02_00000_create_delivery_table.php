@@ -17,16 +17,16 @@ return new class extends Migration
             $table->id();
             $table->integer('command_id');
 
-$table->integer('delivery_user_id');
+$table->integer('delivery_user_id')->nullable();
 
-$table->datetime('date_start');
+$table->datetime('date_start')->nullable();
 
-$table->datetime('date_finish_estimation');
+$table->datetime('date_finish_estimation')->nullable();
 
-$table->datetime('date_finish');
+$table->datetime('date_finish')->nullable();
 
-$table->string('status');
 
+            $table->enum('status', ['WAITING', 'DELIVERING', 'DELIVERED'])->default('WAITING');
 
             $table->timestamps();
         });
