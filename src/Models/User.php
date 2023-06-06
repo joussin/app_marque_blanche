@@ -6,27 +6,35 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
-class User extends Model
+class User extends \App\Models\User
 {
     use HasFactory;
 
     protected $connection = "mysql";
 
-    protected $table = "user";
 
-    protected $fillable = ['id','phone','role',];
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'phone',
+        'role',
+    ];
 
-    protected int $id;
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'role',
+    ];
+
 
     protected string $phone;
-
-    protected string $role;
-
+    protected string $role; // CUSTOMER, DELIVERY, ADMIN
 
 
-    protected static function newFactory()
-    {
-        return \SJoussin\Database\Factories\UserFactory::new();
-    }
+//    public function location()
+//    {
+//        return $this->hasMany(Location::class);
+//    }
 
 }

@@ -13,15 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user', function (Blueprint $table) {
-            $table->id();
-            $table->string('phone');
+        Schema::table('users', function (Blueprint $table) {
 
-            $table->enum('role', ['CUSTOMER', 'DELIVERY', 'ADMIN'])->default('CUSTOMER');
+            $table->string('phone')->after("email");
 
-            $table->boolean('online')->default(false);
+            $table->enum('role', ['CUSTOMER', 'DELIVERY', 'ADMIN'])
+                ->default('CUSTOMER')
+                ->after("phone")
+            ;
 
-            $table->timestamps();
+            // UNIQUE
+            $table->unique(['phone']);
         });
     }
 
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user');
+//        Schema::dropIfExists('users');
     }
 };

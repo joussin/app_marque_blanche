@@ -80,12 +80,13 @@
             }
         }
     ],
+
     "security": [
         {
-            "OAuth2": [
-            ]
+            "bearerAuth": []
         }
     ],
+
     "paths": {
 
 
@@ -93,6 +94,7 @@
 
 
         "/auth/register": {
+
             "post": {
                 "tags": [
                     "Auth"
@@ -105,11 +107,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "example": {
-                                    "name" : "admin",
-                                    "email" : "admin@admin.com",
-                                    "password" : "password"
-                                }
+                                "$ref": "#/components/schemas/UserPostPut"
                             }
                         }
                     },
@@ -179,6 +177,49 @@
                 }
             }
         },
+        "/auth/login/phone": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "LoginUserPhone",
+                "description": "LoginUserPhone",
+                "operationId": "LoginUserPhone",
+                "requestBody": {
+                    "description": "LoginUserPhone",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+
+                                    "phone" : "+33620774530",
+                                    "password" : "password"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
 
         "/auth/token": {
             "post": {
@@ -194,7 +235,7 @@
                         "application/json": {
                             "schema": {
                                 "example": {
-                                    "device_name" : "application_mobile",
+                                    "device_name" : "APPLICATION_MOBILE",
                                     "email" : "admin@admin.com",
                                     "password" : "password"
                                 }
@@ -225,20 +266,23 @@
         },
 
         "/auth/user": {
+
             "get": {
+
                 "tags": [
                     "Auth"
                 ],
                 "summary": "getUser",
                 "description": "getUser",
                 "operationId": "getUser",
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "successful operation",
                         "content": {
                             "application/json": {
                                 "schema": {
-
+                                    "$ref": "#/components/schemas/User"
                                 }
                             }
                         }
@@ -255,8 +299,9 @@
 
 
 
-        "/user": {
+        "/users": {
             "get": {
+
                 "tags": [
                     "User"
                 ],
@@ -281,25 +326,29 @@
                         "description": "Not found"
                     }
                 }
-            },
-            "post": {
+            }
+        },
+        "/user/{user}": {
+            "get": {
                 "tags": [
                     "User"
                 ],
-                "summary": "create User",
-                "description": "create a single User",
-                "operationId": "createUser",
-                "requestBody": {
-                    "description": "Create a new User",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/UserPostPut"
-                            }
+                "summary": "Get User",
+                "description": "Get User",
+                "operationId": "GetUser",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "description": "user ID of User to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
                         }
-                    },
-                    "required": true
-                },
+                    }
+                ],
+
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -318,9 +367,7 @@
                         "description": "Not found"
                     }
                 }
-            }
-        },
-        "/user/{id}": {
+            },
             "put": {
                 "tags": [
                     "User"
@@ -330,9 +377,9 @@
                 "operationId": "editUser",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "user",
                         "in": "path",
-                        "description": "ID of User to return",
+                        "description": "user ID of User to return",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -379,9 +426,9 @@
                 "operationId": "DeleteUser",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "user",
                         "in": "path",
-                        "description": "ID of User to delete",
+                        "description": "user ID of User to delete",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -409,6 +456,10 @@
                 }
             }
         },
+
+
+
+
 
 
         "/location": {
@@ -1190,22 +1241,40 @@
                     "id": {
                         "type": "integer"
                     },
-                    "phone": {
+                    "name": {
                         "type": "string"
                     },
-                    "role": {
+                    "email": {
                         "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    },
+
+                    "phone": {
+                        "type": "string",
+                        "example": "+33620774530"
                     }
                 }
             },
             "UserPostPut": {
                 "type": "object",
                 "properties": {
-                    "phone": {
+                    "name": {
+                        "type": "string",
+                        "example": "admin"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "admin@admin.com"
+                    },
+                    "password": {
                         "type": "string"
                     },
-                    "role": {
-                        "type": "string"
+
+                    "phone": {
+                        "type": "string",
+                        "example": "+33620774530"
                     }
                 }
             },
@@ -1408,22 +1477,10 @@
             }
         },
         "securitySchemes": {
-            "OAuth2": {
-                "type": "oauth2",
-                "description": "description oauth2",
-                "flows": {
-                    "clientCredentials": {
-                        "authorizationUrl": "http://dev.oauth.cartegriseminute.net/oauth/authorize",
-                        "tokenUrl": "http://dev.oauth.cartegriseminute.net/oauth/token",
-                        "scopes": {
-                            "route:any": "Grant route:any access",
-                            "route:anyView": "Grant route:anyView access",
-                            "route:store": "Grant route:store access",
-                            "route:edit": "Grant route:edit access",
-                            "route:delete": "Grant route:delete access"
-                        }
-                    }
-                }
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
             }
         }
     }

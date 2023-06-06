@@ -15,13 +15,13 @@ class UserSeeder extends Seeder
     public function run()
     {
         $model = \SJoussin\Models\User::factory()->create([
-                       'phone' => null,
-
-           'username' => null,
-
-           'password' => null,
-
-           'role' => null,
+//                       'phone' => null,
+//
+//           'username' => null,
+//
+//           'password' => null,
+//
+//           'role' => null,
 
 
         ]);

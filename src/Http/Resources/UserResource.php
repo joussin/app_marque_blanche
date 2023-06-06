@@ -3,6 +3,7 @@
 namespace SJoussin\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Str;
 
 class UserResource extends JsonResource
 {
@@ -23,12 +24,15 @@ class UserResource extends JsonResource
     public function toArray($request)
     {
         return [
-           'id' => $this->id,
-
+           'name' => $this->id,
+           'email' => $this->email,
+           'email_verified_at' => $this->email_verified_at,
+//           'password' => $this->password, //'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+//           'remember_token' => Str::random(10),
            'phone' => $this->phone,
+//           'role' => $this->role,
 
-           'role' => $this->role,
-
+//           'location' => LocationResource::collection($this->whenLoaded('location')),
 
         ];
     }

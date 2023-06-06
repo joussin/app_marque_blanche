@@ -28,7 +28,9 @@ $table->datetime('date_finish')->nullable();
 
             $table->enum('status', ['WAITING', 'DELIVERING', 'DELIVERED'])->default('WAITING');
 
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+
         });
     }
 

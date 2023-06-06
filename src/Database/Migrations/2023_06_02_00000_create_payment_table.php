@@ -22,7 +22,9 @@ return new class extends Migration
             $table->enum('type', ['CASH', 'CB'])->default('CASH');
             $table->enum('status', ['WAITING', 'PAID', 'FAILED', 'CANCELED'])->default('WAITING');
 
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+
         });
     }
 

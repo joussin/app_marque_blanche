@@ -22,7 +22,9 @@ $table->datetime('date');
 $table->enum('status', ['CART', 'COMMAND_WAITING', 'COMMAND_FINISH', 'COMMAND_CANCEL'])->default('CART');
 
 
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+
         });
     }
 

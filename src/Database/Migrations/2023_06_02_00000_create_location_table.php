@@ -15,16 +15,30 @@ return new class extends Migration
     {
         Schema::create('location', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->nullable();
 
-$table->float('lat');
+            $table->integer('user_id')->nullable()->unsigned();
 
-$table->float('long');
+            $table->float('lat');
 
-$table->string('address')->nullable();
+            $table->float('long');
+
+            $table->string('address')->nullable();
 
 
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+
+        });
+
+
+
+        Schema::table('location', function (Blueprint $table) {
+            $table->foreign(
+                'user_id',
+                'location_user_id_foreign')
+                ->references('id')
+                ->on('users')
+                ->nullOnDelete();
         });
     }
 
@@ -35,6 +49,13 @@ $table->string('address')->nullable();
      */
     public function down()
     {
+
+//        Schema::table('location', function (Blueprint $table) {
+//            $table->dropForeign('location_user_id_foreign');
+//        });
+
+
+
         Schema::dropIfExists('location');
     }
 };

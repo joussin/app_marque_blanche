@@ -4,6 +4,7 @@ php artisan migrate --path=/src/Database/Migrations
 php artisan migrate:refresh --path=/src/Database/Migrations
 
 php artisan migrate
+php artisan migrate:refresh
 
 
 php artisan serve --port=5555
