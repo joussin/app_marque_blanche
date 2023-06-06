@@ -24,6 +24,14 @@
     ],
     "tags": [
         {
+            "name": "Auth",
+            "description": "Auth",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://swagger.io"
+            }
+        },
+        {
             "name": "User",
             "description": "User",
             "externalDocs": {
@@ -79,6 +87,174 @@
         }
     ],
     "paths": {
+
+
+
+
+
+        "/auth/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "registerUser",
+                "description": "registerUser",
+                "operationId": "registerUser",
+                "requestBody": {
+                    "description": "registerUser",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "name" : "admin",
+                                    "email" : "admin@admin.com",
+                                    "password" : "password"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "LoginUser",
+                "description": "LoginUser",
+                "operationId": "LoginUser",
+                "requestBody": {
+                    "description": "LoginUser",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+
+                                    "email" : "admin@admin.com",
+                                    "password" : "password"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+
+        "/auth/token": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "tokenUser",
+                "description": "tokenUser",
+                "operationId": "tokenUser",
+                "requestBody": {
+                    "description": "tokenUser",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "device_name" : "application_mobile",
+                                    "email" : "admin@admin.com",
+                                    "password" : "password"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+
+        "/auth/user": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "getUser",
+                "description": "getUser",
+                "operationId": "getUser",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+
+
+
         "/user": {
             "get": {
                 "tags": [

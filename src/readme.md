@@ -49,8 +49,7 @@ coordonnées. coords -> full address
 
 **Product** : Represent un produit de l'application.
 
-**Cart** : Represent an user list of selected products. temporaire, modififiable ... persisté dans le but d'améliorer l'
-ux
+
 
 **Command** : Represent a Cart validated before payment. Panier validé puis stocké en base en vue d'être réglé.
 
@@ -64,10 +63,10 @@ ux
 erDiagram
     User ||--|{ Location : hasMany
     Location ||--|| Address : hasOne
-    User ||--|{ Cart : hasMany
+    User ||--|{ Command : hasMany
     
-    Cart ||--|{ Product : hasMany
-    Cart ||--|| Command : hasOne
+    Command ||--|{ Product : hasMany
+
     
     Command ||--|| Payment : hasOne
     Command ||--|| Delivery : hasOne
@@ -120,16 +119,11 @@ erDiagram
 		Int price  
 	}
     
-    Cart {
-	     int id PK
-	     int user_id FK
-	     datetime date "2023-03-25 12:30:00, YYYY-MM-DD H:i:s"
-	}
-    
+
     Command {
         int id PK
         int cart_id FK
-        enum status "WAITING_PAID, PAID, WAITING_DELIVERY, CONFIRMED_DELIVERY, DELIVERY_FINISH, TERMINATED"
+        enum status "CART, WAITING_PAID, PAID, WAITING_DELIVERY, CONFIRMED_DELIVERY, DELIVERY_FINISH, TERMINATED"
         datetime date "2023-03-25 12:30:00"
 	}
     
@@ -197,7 +191,6 @@ erDiagram
 > Resources:
 
 - Product
-- Cart
 - Command
 - Delivery
 
@@ -293,9 +286,9 @@ Product->>-ClientApplication: Product[]
 ```mermaid
 sequenceDiagram
 
-User->>+Cart: Add Product to cart
+User->>+Command: Add Product to cart
 
-Cart->>-User: cart with product added
+Command->>-User: cart with product added
 
 User->>+Command: Validate Cart & create a Command
 

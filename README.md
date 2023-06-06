@@ -1,16 +1,17 @@
 
 
-php artisan migrate --path=/database/migrations/2014_10_12_000000_create_users_table.php
-
 php artisan migrate --path=/src/Database/Migrations
 php artisan migrate:refresh --path=/src/Database/Migrations
 
+php artisan migrate
 
 
 php artisan serve --port=5555
 
 
 // todo api:
+
+sanctum : https://laravel.com/docs/10.x/sanctum#mobile-application-authentication
 
 login / subscribe
 
