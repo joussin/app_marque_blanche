@@ -43,7 +43,7 @@ class DeliveryApiController extends Controller
     public function show(Request $request, $id) //\SJoussin\Models\Delivery $model)
     {
         $model = \SJoussin\Models\Delivery::find($id);
-
+        $model = $model->loadMissing(["command"]);
         return new \SJoussin\Http\Resources\DeliveryResource($model);
     }
 

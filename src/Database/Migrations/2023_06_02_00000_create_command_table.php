@@ -14,17 +14,26 @@ return new class extends Migration
     public function up()
     {
         Schema::create('command', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
+            $table->increments("id");
+            $table->integer('user_id')->nullable()->unsigned();;
 
-$table->datetime('date');
+            $table->datetime('date');
 
-$table->enum('status', ['CART', 'COMMAND_WAITING', 'COMMAND_FINISH', 'COMMAND_CANCEL'])->default('CART');
+            $table->enum('status', ['CART', 'COMMAND_WAITING', 'COMMAND_FINISH', 'COMMAND_CANCEL'])->default('CART');
 
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
 
+        });
+
+        Schema::table('command', function (Blueprint $table) {
+            $table->foreign(
+                'user_id',
+                'command_user_id_foreign')
+                ->references('id')
+                ->on('users')
+                ->nullOnDelete();
         });
     }
 
@@ -35,6 +44,10 @@ $table->enum('status', ['CART', 'COMMAND_WAITING', 'COMMAND_FINISH', 'COMMAND_CA
      */
     public function down()
     {
+        Schema::table('command', function (Blueprint $table) {
+            $table->dropForeign('command_user_id_foreign');
+        });
+
         Schema::dropIfExists('command');
     }
 };

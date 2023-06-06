@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('delivery', function (Blueprint $table) {
-            $table->id();
-            $table->integer('command_id');
+            $table->increments("id");
+            $table->integer('command_id')->nullable()->unsigned();
 
 $table->integer('delivery_user_id')->nullable();
 
@@ -32,6 +32,15 @@ $table->datetime('date_finish')->nullable();
             $table->timestamp('updated_at')->default(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
 
         });
+
+        Schema::table('delivery', function (Blueprint $table) {
+            $table->foreign(
+                'command_id',
+                'delivery_command_id_foreign')
+                ->references('id')
+                ->on('command')
+                ->nullOnDelete();
+        });
     }
 
     /**
@@ -41,6 +50,12 @@ $table->datetime('date_finish')->nullable();
      */
     public function down()
     {
+
+        Schema::table('delivery', function (Blueprint $table) {
+            $table->dropForeign('delivery_command_id_foreign');
+        });
+
+
         Schema::dropIfExists('delivery');
     }
 };

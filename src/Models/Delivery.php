@@ -36,4 +36,9 @@ class Delivery extends Model
         return \SJoussin\Database\Factories\DeliveryFactory::new();
     }
 
+
+    public function command()
+    {
+        return $this->belongsTo(Command::class, 'command_id', 'id');
+    }
 }

@@ -1464,7 +1464,8 @@
                         "example": "admin@admin.com"
                     },
                     "password": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "password"
                     },
 
                     "phone": {
@@ -1535,7 +1536,7 @@
                         "type": "string"
                     },
                     "available": {
-                        "type": "bool"
+                        "type": "boolean"
                     }
                 }
             },
@@ -1555,7 +1556,7 @@
                         "type": "string"
                     },
                     "available": {
-                        "type": "bool"
+                        "type": "boolean"
                     }
                 }
             },
@@ -1569,7 +1570,8 @@
                         "type": "integer"
                     },
                     "date": {
-                        "type": "datetime"
+                        "type": "string",
+                        "example": "2022-12-31"
                     },
                     "status": {
                         "type": "string"
@@ -1583,7 +1585,8 @@
                         "type": "integer"
                     },
                     "date": {
-                        "type": "datetime"
+                        "type": "string",
+                        "example": "2022-12-31"
                     },
                     "status": {
                         "type": "string"
@@ -1634,13 +1637,16 @@
                         "type": "integer"
                     },
                     "date_start": {
-                        "type": "datetime"
+                        "type": "string",
+                        "example": "2022-12-31"
                     },
                     "date_finish_estimation": {
-                        "type": "datetime"
+                        "type": "string",
+                        "example": "2022-12-31"
                     },
                     "date_finish": {
-                        "type": "datetime"
+                        "type": "string",
+                        "example": "2022-12-31"
                     },
                     "status": {
                         "type": "string"
@@ -1657,13 +1663,16 @@
                         "type": "integer"
                     },
                     "date_start": {
-                        "type": "datetime"
+                        "type": "string",
+                        "example": "2022-12-31"
                     },
                     "date_finish_estimation": {
-                        "type": "datetime"
+                        "type": "string",
+                        "example": "2022-12-31"
                     },
                     "date_finish": {
-                        "type": "datetime"
+                        "type": "string",
+                        "example": "2022-12-31"
                     },
                     "status": {
                         "type": "string"

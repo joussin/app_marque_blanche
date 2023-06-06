@@ -30,4 +30,20 @@ class Command extends Model
         return \SJoussin\Database\Factories\CommandFactory::new();
     }
 
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function delivery()
+    {
+        return $this->hasMany(Delivery::class);
+    }
+
+    public function payment()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
 }

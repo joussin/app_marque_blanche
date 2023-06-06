@@ -37,7 +37,7 @@ class DeliveryResource extends JsonResource
 
            'status' => $this->status,
 
-
+           'command' => new CommandResource($this->whenLoaded('command'))
         ];
     }
 }

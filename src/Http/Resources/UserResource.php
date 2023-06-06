@@ -34,6 +34,8 @@ class UserResource extends JsonResource
 
            'location' => LocationResource::collection($this->whenLoaded('location')),
 
+           'command' => CommandResource::collection($this->whenLoaded('command')),
+
         ];
     }
 }

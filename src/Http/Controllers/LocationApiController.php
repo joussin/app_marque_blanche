@@ -23,14 +23,14 @@ class LocationApiController extends Controller
 //            "name"          => $request->post('name'),
             'user_id' => $request->post('user_id'),
 
-'lat' => $request->post('lat'),
+            'lat' => $request->post('lat'),
 
-'long' => $request->post('long'),
+            'long' => $request->post('long'),
 
-'address' => $request->post('address'),
+            'address' => $request->post('address'),
 
 
-    ]);
+        ]);
 
         return new \SJoussin\Http\Resources\LocationResource($model);
     }
@@ -57,11 +57,11 @@ class LocationApiController extends Controller
 //                "name",
                 'user_id',
 
-'lat',
+                'lat',
 
-'long',
+                'long',
 
-'address',
+                'address',
 
 
             ]

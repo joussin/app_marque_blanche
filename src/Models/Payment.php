@@ -30,4 +30,10 @@ class Payment extends Model
         return \SJoussin\Database\Factories\PaymentFactory::new();
     }
 
+
+    public function command()
+    {
+        return $this->belongsTo(Command::class, 'command_id', 'id');
+    }
+
 }

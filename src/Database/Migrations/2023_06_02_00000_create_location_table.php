@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('location', function (Blueprint $table) {
-            $table->id();
+            $table->increments("id");
 
             $table->integer('user_id')->nullable()->unsigned();
 
@@ -50,9 +50,9 @@ return new class extends Migration
     public function down()
     {
 
-//        Schema::table('location', function (Blueprint $table) {
-//            $table->dropForeign('location_user_id_foreign');
-//        });
+        Schema::table('location', function (Blueprint $table) {
+            $table->dropForeign('location_user_id_foreign');
+        });
 
 
 

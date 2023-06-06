@@ -37,7 +37,7 @@ class PaymentApiController extends Controller
     public function show(Request $request, $id) //\SJoussin\Models\Payment $model)
     {
         $model = \SJoussin\Models\Payment::find($id);
-
+        $model = $model->loadMissing(["command"]);
         return new \SJoussin\Http\Resources\PaymentResource($model);
     }
 

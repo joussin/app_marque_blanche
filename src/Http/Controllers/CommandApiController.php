@@ -17,18 +17,15 @@ class CommandApiController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $this->validate($request, \SJoussin\ValidationRules\CommandValidationRules::RULES);
+//        $validated = $this->validate($request, \SJoussin\ValidationRules\CommandValidationRules::RULES);
 
         $model = \SJoussin\Models\Command::create([
-//            "name"          => $request->post('name'),
+
             'user_id' => $request->post('user_id'),
+            'date' => $request->post('date'),
+            'status' => $request->post('status'),
 
-'date' => $request->post('date'),
-
-'status' => $request->post('status'),
-
-
-    ]);
+        ]);
 
         return new \SJoussin\Http\Resources\CommandResource($model);
     }
@@ -37,6 +34,8 @@ class CommandApiController extends Controller
     public function show(Request $request, $id) //\SJoussin\Models\Command $model)
     {
         $model = \SJoussin\Models\Command::find($id);
+
+        $model = $model->loadMissing(['delivery', "payment", "user"]);
 
         return new \SJoussin\Http\Resources\CommandResource($model);
     }
@@ -53,9 +52,9 @@ class CommandApiController extends Controller
 //                "name",
                 'user_id',
 
-'date',
+                'date',
 
-'status',
+                'status',
 
 
             ]

@@ -37,4 +37,9 @@ class User extends \App\Models\User
         return $this->hasMany(Location::class);
     }
 
+    public function command()
+    {
+        return $this->hasMany(Command::class);
+    }
+
 }

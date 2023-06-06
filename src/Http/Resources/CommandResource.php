@@ -31,7 +31,11 @@ class CommandResource extends JsonResource
 
            'status' => $this->status,
 
+           'user' => new UserResource($this->whenLoaded('user')),
 
+           'delivery' => DeliveryResource::collection($this->whenLoaded('delivery')),
+
+           'payment' => PaymentResource::collection($this->whenLoaded('payment')),
         ];
     }
 }
