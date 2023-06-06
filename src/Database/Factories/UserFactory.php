@@ -21,14 +21,7 @@ class UserFactory extends Factory
     {
         return [
            'phone' => null,
-
-           'username' => null,
-
-           'password' => null,
-
            'role' => null,
-
-
         ];
     }
 }

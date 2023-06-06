@@ -409,6 +409,8 @@
                 }
             }
         },
+
+
         "/location": {
             "get": {
                 "tags": [
@@ -1191,12 +1193,6 @@
                     "phone": {
                         "type": "string"
                     },
-                    "username": {
-                        "type": "string"
-                    },
-                    "password": {
-                        "type": "string"
-                    },
                     "role": {
                         "type": "string"
                     }
@@ -1206,12 +1202,6 @@
                 "type": "object",
                 "properties": {
                     "phone": {
-                        "type": "string"
-                    },
-                    "username": {
-                        "type": "string"
-                    },
-                    "password": {
                         "type": "string"
                     },
                     "role": {

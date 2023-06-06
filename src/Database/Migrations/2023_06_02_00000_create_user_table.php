@@ -17,10 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('phone');
 
-$table->string('username');
-
-$table->string('password');
-
             $table->enum('role', ['CUSTOMER', 'DELIVERY', 'ADMIN'])->default('CUSTOMER');
 
             $table->boolean('online')->default(false);

@@ -20,16 +20,8 @@ class UserApiController extends Controller
         $validated = $this->validate($request, \SJoussin\ValidationRules\UserValidationRules::RULES);
 
         $model = \SJoussin\Models\User::create([
-//            "name"          => $request->post('name'),
             'phone' => $request->post('phone'),
-
-'username' => $request->post('username'),
-
-'password' => $request->post('password'),
-
-'role' => $request->post('role'),
-
-
+            'role' => $request->post('role'),
     ]);
 
         return new \SJoussin\Http\Resources\UserResource($model);
@@ -51,17 +43,8 @@ class UserApiController extends Controller
 
         $model->update($request->only(
             [
-
-//                "name",
                 'phone',
-
-'username',
-
-'password',
-
-'role',
-
-
+                'role',
             ]
         ));
 

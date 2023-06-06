@@ -5,6 +5,7 @@ namespace SJoussin\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class User extends Model
 {
     use HasFactory;
@@ -13,15 +14,11 @@ class User extends Model
 
     protected $table = "user";
 
-    protected $fillable = ['id','phone','username','password','role',];
+    protected $fillable = ['id','phone','role',];
 
     protected int $id;
 
     protected string $phone;
-
-    protected string $username;
-
-    protected string $password;
 
     protected string $role;
 
