@@ -33,7 +33,7 @@ class LocationResource extends JsonResource
 
            'address' => $this->address,
 
-//           'user' => new UserResource($this->whenLoaded('user'))
+           'user' => new UserResource($this->whenLoaded('user'))
 
         ];
     }

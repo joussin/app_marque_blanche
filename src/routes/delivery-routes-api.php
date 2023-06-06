@@ -1,6 +1,6 @@
 <?php
 
-Route::middleware(['api'])->prefix('api')->group(function () {
+Route::middleware(['api', 'auth:sanctum'])->prefix('api')->group(function () {
 
 
     Route::get('/delivery', '\SJoussin\Http\Controllers\DeliveryApiController@index')

@@ -59,38 +59,37 @@ class AppMarqueBlancheServiceProvider extends ServiceProvider
 
     public function loadRoutes()
     {
-        $use_routes_resource = true;
+
 
         // swagger
-        $routes_swagger_path_from_package = base_path('src/routes/routes-swagger.php' );
+        $routes_swagger_path_from_package = base_path('src/routes/swagger/routes-swagger.php' );
 
          if(File::isFile($routes_swagger_path_from_package)){
             $this->loadRoutesFrom($routes_swagger_path_from_package);
         }
 
         // routes
+        $use_routes_resource = true;
 
         $generated_route_dir =  base_path ("src/routes/");
 
-
-
-        if (File::isDirectory($generated_route_dir)) {
+        if (File::isDirectory($generated_route_dir) && !$use_routes_resource) {
             $routesFiles = File::files(($generated_route_dir));
-
             foreach ($routesFiles as $routesFile) {
+                $this->loadRoutesFrom(
+                    $generated_route_dir . $routesFile->getRelativePathname()
+                );
+            }
+        }
 
-                if($use_routes_resource && Str::contains($routesFile->getRelativePathname(), "resource"))
-                {
-                    $this->loadRoutesFrom(
-                        $generated_route_dir . $routesFile->getRelativePathname()
-                    );
-                } else if(!$use_routes_resource && !Str::contains($routesFile->getRelativePathname(), "resource"))
-                {
-                    $this->loadRoutesFrom(
-                        $generated_route_dir . $routesFile->getRelativePathname()
-                    );
-                }
+        $generated_route_dir_res =  base_path ("src/routes/resources/");
 
+        if (File::isDirectory($generated_route_dir_res) && $use_routes_resource) {
+            $routesFiles = File::files(($generated_route_dir_res));
+            foreach ($routesFiles as $routesFile) {
+                $this->loadRoutesFrom(
+                    $generated_route_dir_res . $routesFile->getRelativePathname()
+                );
             }
         }
     }

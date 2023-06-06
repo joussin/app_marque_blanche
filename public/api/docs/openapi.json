@@ -8,7 +8,7 @@
             "email": "apiteam@swagger.io"
         },
         "license": {
-            "name": "Apache 2.0",
+            "name": "",
             "url": ""
         },
         "version": "0.0.0"
@@ -90,9 +90,6 @@
     "paths": {
 
 
-
-
-
         "/auth/register": {
 
             "post": {
@@ -133,7 +130,6 @@
                 }
             }
         },
-
         "/auth/login": {
             "post": {
                 "tags": [
@@ -220,7 +216,6 @@
                 }
             }
         },
-
         "/auth/token": {
             "post": {
                 "tags": [
@@ -264,7 +259,6 @@
                 }
             }
         },
-
         "/auth/user": {
 
             "get": {
@@ -460,8 +454,6 @@
 
 
 
-
-
         "/location": {
             "get": {
                 "tags": [
@@ -577,6 +569,44 @@
                     }
                 }
             },
+            "get": {
+                "tags": [
+                    "Location"
+                ],
+                "summary": "Get Location",
+                "description": "Get Location",
+                "operationId": "getLocation",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Location to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Location"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
             "delete": {
                 "tags": [
                     "Location"
@@ -616,6 +646,8 @@
                 }
             }
         },
+
+
         "/product": {
             "get": {
                 "tags": [
@@ -731,6 +763,45 @@
                     }
                 }
             },
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "get Product",
+                "description": "get Product",
+                "operationId": "getProduct",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Product to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
             "delete": {
                 "tags": [
                     "Product"
@@ -770,6 +841,9 @@
                 }
             }
         },
+
+
+
         "/command": {
             "get": {
                 "tags": [
@@ -885,6 +959,44 @@
                     }
                 }
             },
+            "get": {
+                "tags": [
+                    "Command"
+                ],
+                "summary": "get Command",
+                "description": "get Command",
+                "operationId": "getCommand",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Command to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Command"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
             "delete": {
                 "tags": [
                     "Command"
@@ -924,6 +1036,7 @@
                 }
             }
         },
+
         "/payment": {
             "get": {
                 "tags": [
@@ -1039,6 +1152,45 @@
                     }
                 }
             },
+            "get": {
+                "tags": [
+                    "Payment"
+                ],
+                "summary": "get Payment",
+                "description": "get Payment",
+                "operationId": "getPayment",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Payment to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Payment"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
             "delete": {
                 "tags": [
                     "Payment"
@@ -1078,6 +1230,8 @@
                 }
             }
         },
+
+
         "/delivery": {
             "get": {
                 "tags": [
@@ -1193,6 +1347,45 @@
                     }
                 }
             },
+            "get": {
+                "tags": [
+                    "Delivery"
+                ],
+                "summary": "get Delivery",
+                "description": "get Delivery",
+                "operationId": "getDelivery",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Delivery to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Delivery"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
             "delete": {
                 "tags": [
                     "Delivery"
@@ -1233,6 +1426,8 @@
             }
         }
     },
+
+
     "components": {
         "schemas": {
             "User": {

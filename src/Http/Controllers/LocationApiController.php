@@ -11,7 +11,7 @@ class LocationApiController extends Controller
 
     public function index(Request $request)
     {
-        return \SJoussin\Http\Resources\LocationResource::collection(\SJoussin\Models\Location::all());
+        return \SJoussin\Http\Resources\LocationResource::collection(\SJoussin\Models\Location::all()->loadMissing(['user']));
     }
 
 
@@ -39,6 +39,8 @@ class LocationApiController extends Controller
     public function show(Request $request, $id) //\SJoussin\Models\Location $model)
     {
         $model = \SJoussin\Models\Location::find($id);
+
+        $model = $model->loadMissing(['user']);
 
         return new \SJoussin\Http\Resources\LocationResource($model);
     }
