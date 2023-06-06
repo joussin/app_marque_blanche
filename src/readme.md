@@ -65,8 +65,8 @@ erDiagram
     Location ||--|| Address : hasOne
     User ||--|{ Command : hasMany
     
-    Cart ||--|{ Product : hasMany
-    Cart ||--|| Command : hasOne
+    Command ||--|{ Product : hasMany
+
     
     Command ||--|| Payment : hasOne
     Command ||--|| Delivery : hasOne
@@ -288,7 +288,7 @@ sequenceDiagram
 
 User->>+Command: Add Product to cart
 
-Cart->>-User: cart with product added
+Command->>-User: cart with product added
 
 User->>+Command: Validate Cart & create a Command
 
