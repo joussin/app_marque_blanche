@@ -32,9 +32,9 @@ class User extends \App\Models\User
     protected string $role; // CUSTOMER, DELIVERY, ADMIN
 
 
-//    public function location()
-//    {
-//        return $this->hasMany(Location::class);
-//    }
+    public function location()
+    {
+        return $this->hasMany(Location::class);
+    }
 
 }

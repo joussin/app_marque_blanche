@@ -32,7 +32,7 @@ class UserResource extends JsonResource
            'phone' => $this->phone,
 //           'role' => $this->role,
 
-//           'location' => LocationResource::collection($this->whenLoaded('location')),
+           'location' => LocationResource::collection($this->whenLoaded('location')),
 
         ];
     }

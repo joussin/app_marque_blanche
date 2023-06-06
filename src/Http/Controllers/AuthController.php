@@ -27,7 +27,9 @@ class AuthController extends Controller
 
     public function loggedUser(Request $request)
     {
-        return $request->user();
+        $user = $request->user();
+        $user = $user->loadMissing(['location']);
+        return $user;
     }
 
     /**
@@ -173,6 +175,7 @@ public function loginUserByPhone(Request $request)
 
     public function get(Request $request, User $user)
     {
+        $user = $user->loadMissing(['location']);
         return new UserResource($user);
     }
 
