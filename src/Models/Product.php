@@ -4,6 +4,7 @@ namespace SJoussin\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Product extends Model
 {
@@ -34,4 +35,10 @@ class Product extends Model
         return \SJoussin\Database\Factories\ProductFactory::new();
     }
 
+    public function command(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            Command::class,
+            'command_product');
+    }
 }

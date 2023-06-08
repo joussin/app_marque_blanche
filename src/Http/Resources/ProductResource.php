@@ -35,6 +35,8 @@ class ProductResource extends JsonResource
 
            'available' => $this->available,
 
+           'command' => CommandResource::collection($this->whenLoaded('command')),
+
 
         ];
     }

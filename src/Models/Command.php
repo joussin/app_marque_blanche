@@ -4,6 +4,7 @@ namespace SJoussin\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Command extends Model
 {
@@ -38,12 +39,16 @@ class Command extends Model
 
     public function delivery()
     {
-        return $this->hasMany(Delivery::class);
+        return $this->hasOne(Delivery::class);
     }
 
     public function payment()
     {
-        return $this->hasMany(Payment::class);
+        return $this->hasOne(Payment::class);
     }
 
+    public function product()
+    {
+        return $this->belongsToMany(Product::class, "command_product");
+    }
 }

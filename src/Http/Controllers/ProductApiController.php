@@ -42,6 +42,7 @@ class ProductApiController extends Controller
     {
         $model = \SJoussin\Models\Product::find($id);
 
+            $model = $model->loadMissing(['command']);
         return new \SJoussin\Http\Resources\ProductResource($model);
     }
 

@@ -36,6 +36,8 @@ class CommandResource extends JsonResource
            'delivery' => DeliveryResource::collection($this->whenLoaded('delivery')),
 
            'payment' => PaymentResource::collection($this->whenLoaded('payment')),
+
+           'product' => ProductResource::collection($this->whenLoaded('product')),
         ];
     }
 }
