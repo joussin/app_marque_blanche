@@ -32,4 +32,3 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::put('/user/{user}',  [\SJoussin\Http\Controllers\AuthController::class, 'update']);
     Route::delete('/user/{user}', [\SJoussin\Http\Controllers\AuthController::class, 'destroy']);
 });
-

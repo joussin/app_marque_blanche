@@ -9,6 +9,9 @@ php artisan migrate:refresh
 
 php artisan serve --port=5555
 
+docker-compose up --build -d
+
+
 
 // todo api:
 

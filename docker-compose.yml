@@ -1,7 +1,7 @@
 version: '3.5'
 services:
 
-  php_service:
+  php_service_pico:
     build:
       context: ./docker/php/
     stdin_open: true # docker run -i
@@ -11,30 +11,37 @@ services:
     container_name : api_picolo_php_container
     image : api_picolo_php_image
     restart: always
-#    networks:
+    networks:
+        - database-net
+
 #      - api_allopico_net
 
 
-  apache_service:
+  apache_service_pico:
     container_name: api_picolo_apache_container
     image: api_picolo_apache_image
     build:
       context: ./docker/apache/
     ports:
-      - "${APACHE_PORT}:80"
+      - "5555:80"
     restart: always
     volumes:
       - .:/var/www/html/
-#    networks:
+    networks:
+        database-net:
+
+
 #      api_allopico_net:
 #        ipv4_address: 172.98.1.4
     depends_on:
-      - php_service
+      - php_service_pico
 
-#networks:
+networks:
 #  api_allopico_net:
 #    name: api_allopico-net
 #    ipam:
 #      driver: default
 #      config:
 #        - subnet: 172.98.0.0/16
+    database-net:
+        external: true
