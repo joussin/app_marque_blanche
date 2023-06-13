@@ -161,7 +161,11 @@ public function loginUserByPhone(Request $request)
             ]);
         }
 
-        return $user->createToken(self::TOKEN_GET_TOKEN . "_" . $request->device_name)->plainTextToken;
+        return response()->json([
+            'status' => true,
+            'message' => 'Token created Successfully',
+            'token' => $user->createToken(self::TOKEN_GET_TOKEN . "_" . $request->device_name)->plainTextToken
+        ], 200);
     }
 
 
